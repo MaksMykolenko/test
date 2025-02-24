@@ -10,7 +10,6 @@ html, body {
     overflow-x: hidden;
     max-width: 100vw;
     box-sizing: border-box;
-    font-size: clamp(14px, 1.5vw, 18px); /* Адаптивний базовий шрифт */
 }
 
 /* Затемнене фонове зображення */
@@ -46,7 +45,9 @@ html, body {
     border-radius: 20px;
     background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
-    font-size: clamp(1.8em, 4vw, 2.5em); /* Адаптивний розмір тексту */
+    font-size: clamp(1.5em, 5vw, 3em); /* Покращена адаптація розміру */
+    max-width: 90%; /* Запобігає виходу за межі екрану */
+    word-wrap: break-word; /* Дозволяє перенос слів */
 }
 
 /* Анімація появи */
@@ -93,6 +94,7 @@ html, body {
 .content:nth-child(2) { animation-delay: 0.6s; }
 .content:nth-child(3) { animation-delay: 1.2s; }
 .content:nth-child(4) { animation-delay: 1.8s; }
+.content:nth-child(5) { animation-delay: 2.3s; }
 
 /* Заголовки */
 .content h2 {
@@ -203,13 +205,142 @@ html, body {
     background: #008ecc;
 }
 
+/* Секція викладачів */
+.teachers {
+    text-align: center;
+    padding: 90px 25px;
+    color: #e8e8e8;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.teachers h2 {
+    font-size: clamp(1.8em, 2.2vw, 2.2em);
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    color: #00aaff;
+}
+
+/* Контейнер для карток */
+.teachers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Окрема картка */
+.teacher-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+    background: #282828;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Послідовне з'явлення карток */
+.teacher-card:nth-child(1) { animation-delay: 1.8s; }
+.teacher-card:nth-child(2) { animation-delay: 2.1s; }
+.teacher-card:nth-child(3) { animation-delay: 2.4s; }
+
+.teacher-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
+}
+
+.teacher-card img {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.teacher-card h3 {
+    font-size: clamp(1.5em, 1.7vw, 1.7em);
+    margin-bottom: 12px;
+    color: #00aaff;
+}
+
+.teacher-card p {
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    color: #d0d0d0;
+    margin-bottom: 18px;
+}
+
+
+/* Блок реклами */
+.advertisement {
+    background: #1b1b1b;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.07);
+    text-align: center;
+    max-width: 800px;
+    margin: 50px auto;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 2.8s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advertisement:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
+}
+
+.advertisement h2 {
+    color: #00aaff;
+    font-size: clamp(1.5em, 2vw, 2em);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.advertisement p {
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    color: #c0c0c0;
+    line-height: 1.6;
+}
+
+/* Кнопка для реклами */
+.advertisement button {
+    background: #00aaff;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.advertisement button:hover {
+    background: #00aaff;
+    transform: scale(1.05);
+}
+
+/* Контейнер для всього контенту */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 10vh;
+}
+
+/* Основний контент */
+.main-content {
+    flex: 1;
+}
+
 /* Футер */
 footer {
-    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #888;

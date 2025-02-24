@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Оформлення замовлення</title>
     <link rel="stylesheet" href="order.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VRT2RJG2JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VRT2RJG2JQ');
+</script>
 </head>
+
 <body>
+    <div class="wrapper">
+        <div class="main-content">
+
     <div class="container">
         <h1>Оформлення замовлення</h1>
         <form id="orderForm">
@@ -23,6 +36,13 @@
                 <option value="3">Відчислитися самому - 2000zł</option>
             </select>
 
+            <label for="service">Виберіть спосіб оплати</label>
+            <select id="service" name="service" required>
+                <option value="1">Натурою</option>
+                <option value="2">Продати почку друга</option>
+                <option value="3">Продати лєшика німцям</option>
+            </select>
+
             <label for="comment">Коментар (необов'язково):</label>
             <textarea id="comment" name="comment" rows="4"></textarea>
 
@@ -31,10 +51,12 @@
         <p id="confirmation" class="hidden">✅ Ваше замовлення прийнято!</p>
     </div>
 
-    <footer>
-        <a href="https://maksmykolenko.github.io/MaksGames/" style="font-size: calc(var(--sizeindex) * 2); opacity: 60%;">©Copyright 2024 by MaxGames.dev. All rights reserved.</a>
-    </footer>
-    
+        </div>
+        <footer>
+            <a href="#">©Copyright 2025 by InfoAboutVistula. All rights reserved.</a>
+        </footer>
+ </div>
+
     <script>
         document.getElementById('orderForm').addEventListener('submit', function(event) {
             event.preventDefault();
